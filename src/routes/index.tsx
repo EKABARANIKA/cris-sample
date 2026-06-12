@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowRight, BookOpen, Pencil, Calculator, Sparkles, GraduationCap, Star, Users, Award, Heart, ShieldCheck, ChevronRight, Palette, BookMarked, PenTool, Trophy, Cpu, Handshake } from "lucide-react";
+import { ArrowRight, BookOpen, Pencil, Calculator, Sparkles, GraduationCap, Star, Users, Award, Heart, ShieldCheck, ChevronRight, Palette, BookMarked, PenTool, Trophy, Cpu, Handshake, Instagram } from "lucide-react";
 import heroImg from "@/assets/hero-children.jpg";
 import kgImg from "@/assets/kindergarten.jpg";
 import phonicsImg from "@/assets/phonics.jpg";
@@ -8,7 +8,16 @@ import handwritingImg from "@/assets/handwriting.jpg";
 import prewritingImg from "@/assets/prewriting.jpg";
 import abacusImg from "@/assets/abacus.jpg";
 import roboticsImg from "@/assets/ai-robotics.jpg";
+import drawingImg from "@/assets/drawing.jpg";
+import chessImg from "@/assets/chess.jpg";
 import numbersImg from "@/assets/numbers.jpg";
+import swasaLogo from "@/assets/swasa-logo.jpg";
+import ipaLogo from "@/assets/ipa.jpg";
+import wbLogo from "@/assets/white-black-logo.jpeg";
+import coursesMascot from "@/assets/courses-mascot.png";
+import familiesMascot from "@/assets/families-mascot.png";
+import faqMascot from "@/assets/faq-mascot.png";
+import butterflyMascot from "@/assets/butterfly-mascot.png";
 import { SectionHeader } from "@/components/site/Section";
 import { CTA } from "@/components/site/CTA";
 import { CourseModal, type CourseDetail } from "@/components/site/CourseModal";
@@ -97,12 +106,57 @@ const courses: (CourseDetail & { icon: typeof BookOpen; tags: string[]; short: s
     outcomes: ["Foundational coding skills", "Confidence with technology", "Logical & analytical thinking", "Excitement for STEM"],
     href: "/programs/ai-robotics",
   },
+  {
+    title: "Drawing Class",
+    short: "Unleash creativity through structured art & drawing.",
+    image: drawingImg,
+    icon: Palette,
+    tags: ["Art", "Creativity", "Expression"],
+    ageGroup: "All Ages",
+    description: "A creative and structured drawing program in collaboration with SWASA ART, designed to help children express themselves and master foundational art techniques.",
+    benefits: ["Fine motor development", "Enhanced creativity", "Improved focus", "Art techniques", "Self-expression"],
+    outcomes: ["Mastery of basic drawing", "Confident color use", "Unique art projects", "Creative joy"],
+    href: "/programs/drawing",
+  },
+  {
+    title: "Chess Class",
+    short: "Professional chess training for young strategists.",
+    image: chessImg,
+    icon: Trophy,
+    tags: ["Strategy", "Analysis", "Focus"],
+    ageGroup: "Ages 5+",
+    description: "Strategic chess training in collaboration with White & Black Academy, helping children master the game of kings while building analytical skills.",
+    benefits: ["Critical thinking", "Improved concentration", "Strategic planning", "Patience", "Decision making"],
+    outcomes: ["Strong foundations", "Tournament readiness", "Logical thinking", "Sportsmanship"],
+    href: "/programs/chess",
+  },
 ];
 
 const partners = [
-  { name: "IPA", tag: "Educational Partner", desc: "International curriculum collaboration for academic excellence.", color: "from-pink-400 to-rose-500" },
-  { name: "IPA", tag: "Learning Partner", desc: "Co-designed programs that strengthen foundational skills.", color: "from-violet-500 to-fuchsia-500" },
-  { name: "IPA", tag: "Skill Partner", desc: "Joint initiatives for future-ready learning experiences.", color: "from-amber-400 to-orange-500" },
+  { 
+    name: "SWASA ART", 
+    tag: "Creative Arts Partner", 
+    desc: "Drawing, Painting, and Craft classes (Online & Direct) for all age groups.", 
+    color: "from-pink-400 to-rose-500",
+    logo: swasaLogo,
+    url: "https://www.instagram.com/reel/DZWpkLcva3z/?igsh=MTRmcnZicHFtNWUxOQ=="
+  },
+  { 
+    name: "Ideal Play Abacus", 
+    tag: "Mental Math Partner", 
+    desc: "Abacus and brain development program for children to boost memory and concentration.", 
+    color: "from-violet-500 to-fuchsia-500",
+    logo: ipaLogo,
+    url: "https://www.instagram.com/p/DXWkGFiChBq/?igsh=MTF6emZtZGdoNnFmZg=="
+  },
+  { 
+    name: "White & Black Academy", 
+    tag: "Strategic Learning Partner", 
+    desc: "Professional chess training for young strategists to master the game.", 
+    color: "from-amber-400 to-orange-500",
+    logo: wbLogo,
+    url: "https://www.instagram.com/whiteandblackacademy/" 
+  },
 ];
 
 
@@ -202,7 +256,10 @@ function Home() {
       </section>
 
       {/* ABOUT */}
-      <section className="container-app py-20 md:py-28">
+      <section className="container-app py-20 md:py-28 relative">
+        <div className="absolute -top-16 left-12 md:-top-24 md:left-24 lg:-top-32 lg:left-32 w-48 h-48 md:w-80 md:h-80 lg:w-[32rem] lg:h-[32rem] animate-float pointer-events-none z-[0] opacity-30 md:opacity-100" style={{ animationDelay: '1.5s' }}>
+          <img src={butterflyMascot} alt="" className="w-full h-full object-contain filter drop-shadow-2xl" />
+        </div>
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-xs font-semibold tracking-wider uppercase">
@@ -221,12 +278,15 @@ function Home() {
               Learn More <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
-          <div className="grid grid-cols-2 gap-4">
-            {[kgImg, phonicsImg, numbersImg, handwritingImg].map((img, i) => (
-              <div key={i} className={`rounded-3xl overflow-hidden shadow-[var(--shadow-soft)] ${i % 2 ? "translate-y-8" : ""}`}>
-                <img src={img} alt="" loading="lazy" className="w-full h-full object-cover aspect-[4/5]" />
-              </div>
-            ))}
+
+          <div className="relative">
+            <div className="grid grid-cols-2 gap-4">
+              {[kgImg, phonicsImg, numbersImg, handwritingImg].map((img, i) => (
+                <div key={i} className={`rounded-3xl overflow-hidden shadow-[var(--shadow-soft)] ${i % 2 ? "translate-y-8" : ""}`}>
+                  <img src={img} alt="" loading="lazy" className="w-full h-full object-cover aspect-[4/5]" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -240,30 +300,39 @@ function Home() {
         />
         <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {partners.map((p, i) => (
-            <div
+            <a
               key={i}
-              className="group relative overflow-hidden rounded-3xl bg-card border border-border/60 p-7 md:p-8 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-card)] hover:-translate-y-1.5 transition-all duration-300 animate-fade-up"
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden rounded-3xl bg-card border border-border/60 p-7 md:p-8 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-card)] hover:-translate-y-1.5 transition-all duration-300 animate-fade-up block"
               style={{ animationDelay: `${i * 120}ms` }}
             >
               <div className={`absolute -top-16 -right-16 w-44 h-44 rounded-full bg-gradient-to-br ${p.color} opacity-15 group-hover:opacity-30 blur-2xl transition-opacity`} />
-              <div className={`relative grid place-items-center w-20 h-20 rounded-2xl bg-gradient-to-br ${p.color} text-white shadow-lg`}>
-                <Handshake className="w-9 h-9" />
+              <div className="relative w-20 h-20 rounded-2xl bg-white overflow-hidden shadow-md flex items-center justify-center p-2">
+                <img src={p.logo} alt={p.name} className="w-full h-full object-contain" />
               </div>
               <div className="relative mt-6">
                 <span className="text-[11px] uppercase tracking-wider font-semibold text-primary">{p.tag}</span>
-                <h3 className="mt-1 font-display font-bold text-2xl">{p.name}</h3>
+                <div className="flex items-center gap-2">
+                  <h3 className="mt-1 font-display font-bold text-2xl">{p.name}</h3>
+                  <Instagram className="w-4 h-4 text-muted-foreground group-hover:text-pink-500 transition-colors" />
+                </div>
                 <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
               </div>
               <div className="relative mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground group-hover:text-primary transition-colors">
-                Logo Coming Soon <Sparkles className="w-3.5 h-3.5" />
+                View Profile <Instagram className="w-3.5 h-3.5" />
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </section>
 
       {/* COURSES */}
-      <section className="bg-muted/40 py-20 md:py-28">
+      <section className="bg-muted/40 py-20 md:py-28 relative overflow-hidden">
+        <div className="absolute -top-12 right-4 md:-top-16 md:right-8 lg:-top-20 lg:right-12 w-36 h-36 md:w-64 md:h-64 lg:w-[28rem] lg:h-[28rem] animate-float pointer-events-none z-[0] opacity-40 md:opacity-100">
+          <img src={coursesMascot} alt="" className="w-full h-full object-contain" />
+        </div>
         <div className="container-app">
           <SectionHeader
             eyebrow="What We Offer"
@@ -385,11 +454,13 @@ function Home() {
       {/* WHY CHOOSE — auto-scrolling marquee */}
       <section className="bg-[var(--gradient-hero)] py-20 md:py-28 overflow-hidden">
         <div className="container-app">
-          <SectionHeader
-            eyebrow="Why Parents Choose Us"
-            title={<>Why families trust <span className="text-gradient">CRIS</span></>}
-            subtitle="Hover the cards to pause. Six reasons parents across Chennai choose CRIS."
-          />
+          <div className="relative">
+            <SectionHeader
+              eyebrow="Why Parents Choose Us"
+              title={<>Why families trust <span className="text-gradient">CRIS</span></>}
+              subtitle="Hover the cards to pause. Six reasons parents across Chennai choose CRIS."
+            />
+          </div>
         </div>
         <Marquee speed={45}>
           {reasons.map((r) => (
@@ -421,11 +492,16 @@ function Home() {
 
       {/* TESTIMONIALS */}
       <section className="container-app py-20">
-        <SectionHeader
-          eyebrow="Parent Stories"
-          title={<>Loved by <span className="text-gradient">families</span></>}
-          subtitle="Real reviews from parents whose children have grown with us."
-        />
+          <div className="relative">
+            <SectionHeader
+              eyebrow="Parent Stories"
+              title={<>Loved by <span className="text-gradient">families</span></>}
+              subtitle="Real reviews from parents whose children have grown with us."
+            />
+            <div className="absolute -top-20 -right-6 w-28 h-28 md:-top-32 md:-right-12 md:w-56 md:h-56 lg:w-[24rem] lg:h-[24rem] animate-float pointer-events-none z-[0] opacity-60 md:opacity-100">
+              <img src={familiesMascot} alt="" className="w-full h-full object-contain drop-shadow-2xl" />
+            </div>
+          </div>
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((t) => (
             <figure key={t.name} className="bg-card rounded-3xl p-7 shadow-[var(--shadow-soft)] border border-border/50">

@@ -2,16 +2,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { PageHero } from "@/components/site/Section";
 import { X } from "lucide-react";
-import g1 from "@/assets/gallery1.jpg";
-import g2 from "@/assets/gallery2.jpg";
-import g3 from "@/assets/gallery3.jpg";
-import g4 from "@/assets/gallery4.jpg";
-import g5 from "@/assets/gallery5.jpg";
-import g6 from "@/assets/gallery6.jpg";
-import phonics from "@/assets/phonics.jpg";
-import kg from "@/assets/kindergarten.jpg";
-import handwriting from "@/assets/handwriting.jpg";
-import numbers from "@/assets/numbers.jpg";
+import g1 from "@/assets/gallery1.jpeg";
+import g2 from "@/assets/gallery2.jpeg";
+import g3 from "@/assets/gallery3.jpeg";
+import g4 from "@/assets/gallery4.jpeg";
+import g5 from "@/assets/gallery5.jpeg";
+import g6 from "@/assets/gallery6.jpeg";
+import phonics from "@/assets/7.jpeg";
+import kg from "@/assets/8.jpeg";
+import handwriting from "@/assets/group-image-main.jpeg";
+import numbers from "@/assets/founder-certificate.jpeg";
+import g10 from "@/assets/gallery10.jpeg";
+import g11 from "@/assets/gallery11.jpeg";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -26,16 +28,18 @@ export const Route = createFileRoute("/gallery")({
 });
 
 const items = [
-  { src: g1, alt: "Children doing art activity" },
-  { src: phonics, alt: "Phonics reading session" },
-  { src: handwriting, alt: "Child practising handwriting" },
-  { src: g2, alt: "Student showing artwork" },
-  { src: kg, alt: "Kindergarten classroom" },
-  { src: g4, alt: "Annual day celebration" },
-  { src: numbers, alt: "Learning numbers with blocks" },
-  { src: g3, alt: "Children raising hands" },
-  { src: g5, alt: "Neat handwriting practice" },
-  { src: g6, alt: "Teacher reading to children" },
+  { src: handwriting },
+  { src: g1 },
+  { src: phonics },
+  { src: g2 },
+  { src: numbers },
+  { src: kg },
+  { src: g4 },
+  { src: g3},
+  { src: g5},
+  { src: g6},
+  { src: g10},
+  { src: g11},
 ];
 
 function Gallery() {
@@ -46,18 +50,33 @@ function Gallery() {
       <PageHero eyebrow="Gallery" title={<>Moments of <span className="text-gradient">learning & joy</span></>} subtitle="Take a peek inside our classrooms, programs and celebrations." />
 
       <section className="container-app py-16">
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 [&>*]:mb-5">
-          {items.map((item, i) => (
-            <button
-              key={i}
-              onClick={() => setLightbox(item.src)}
-              aria-label={`View ${item.alt}`}
-              className="block w-full group relative overflow-hidden rounded-3xl shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-card)] transition-all break-inside-avoid focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-            >
-              <img src={item.src} alt={item.alt} loading="lazy" className="w-full h-auto group-hover:scale-110 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent opacity-0 group-hover:opacity-100 transition" />
-            </button>
-          ))}
+        <div className="flex flex-col md:flex-row gap-6">
+          {/* Column 1 - 4 Images */}
+          <div className="flex-1 flex flex-col gap-6">
+            {[items[0], items[1], items[2], items[3]].map((item, i) => (
+              <button key={i} onClick={() => setLightbox(item.src)} className="group relative overflow-hidden rounded-[2.5rem] shadow-[var(--shadow-soft)] transition-all block w-full focus:outline-none">
+                <img src={item.src} alt="Gallery" loading="lazy" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
+              </button>
+            ))}
+          </div>
+
+          {/* Column 2 - 4 Images (g10 at bottom) */}
+          <div className="flex-1 flex flex-col gap-6">
+            {[items[4], items[5], items[10], items[6]].map((item, i) => (
+              <button key={i} onClick={() => setLightbox(item.src)} className="group relative overflow-hidden rounded-[2.5rem] shadow-[var(--shadow-soft)] transition-all block w-full focus:outline-none">
+                <img src={item.src} alt="Gallery" loading="lazy" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
+              </button>
+            ))}
+          </div>
+
+          {/* Column 3 - 4 Images */}
+          <div className="flex-1 flex flex-col gap-6">
+            {[items[7], items[8], items[9], items[11]].map((item, i) => (
+              <button key={i} onClick={() => setLightbox(item.src)} className="group relative overflow-hidden rounded-[2.5rem] shadow-[var(--shadow-soft)] transition-all block w-full focus:outline-none">
+                <img src={item.src} alt="Gallery" loading="lazy" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 

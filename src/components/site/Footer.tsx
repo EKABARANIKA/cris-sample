@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
-import logo from "@/assets/cris-logo.gif?url";
+import logo from "@/assets/Footer-Logo.png";
 
 export function Footer() {
   return (
@@ -24,8 +24,19 @@ export function Footer() {
             Building strong foundations for bright futures through personalized early learning and tuition programs in Chennai since 2009.
           </p>
           <div className="flex gap-3 mt-5">
-            {[Facebook, Instagram, Youtube].map((Icon, i) => (
-              <a key={i} href="#" aria-label="social" className="grid place-items-center w-9 h-9 rounded-full bg-white/10 hover:bg-primary transition-colors">
+            {[
+              { Icon: Facebook, href: "https://www.facebook.com/CRISLEARNINGCENTRE/" },
+              { Icon: Instagram, href: "https://www.instagram.com/cris_learning_centre?igsh=MWw3MDQ4eTB5eXB3cQ==" },
+              { Icon: Youtube, href: "https://www.youtube.com/@crislearningcentre" }
+            ].map(({ Icon, href }, i) => (
+              <a 
+                key={i} 
+                href={href} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="social link" 
+                className="grid place-items-center w-9 h-9 rounded-full bg-white/10 hover:bg-primary transition-colors hover:text-white"
+              >
                 <Icon className="w-4 h-4" />
               </a>
             ))}
@@ -64,7 +75,7 @@ export function Footer() {
         <div>
           <h4 className="font-display font-semibold text-white mb-4">Get in Touch</h4>
           <ul className="space-y-3 text-sm">
-            <li className="flex gap-3"><MapPin className="w-4 h-4 mt-0.5 text-primary-soft" /> Santhoshpuram, Chennai</li>
+            <li className="flex gap-3"><MapPin className="w-4 h-4 mt-0.5 text-primary-soft" />Santhosapuram, Chennai</li>
             <li className="flex gap-3"><Phone className="w-4 h-4 mt-0.5 text-primary-soft" />
               <span><a href="tel:9884207073" className="hover:text-primary-soft block">98842 07073</a>
               <a href="tel:9043480305" className="hover:text-primary-soft block">90434 80305</a></span>

@@ -20,6 +20,8 @@ import { Route as ProgramsPreWritingRouteImport } from './routes/programs.pre-wr
 import { Route as ProgramsPhonicsRouteImport } from './routes/programs.phonics'
 import { Route as ProgramsKindergartenTuitionRouteImport } from './routes/programs.kindergarten-tuition'
 import { Route as ProgramsHandwritingRouteImport } from './routes/programs.handwriting'
+import { Route as ProgramsDrawingRouteImport } from './routes/programs.drawing'
+import { Route as ProgramsChessRouteImport } from './routes/programs.chess'
 import { Route as ProgramsAiRoboticsRouteImport } from './routes/programs.ai-robotics'
 import { Route as ProgramsAbacusRouteImport } from './routes/programs.abacus'
 
@@ -79,6 +81,16 @@ const ProgramsHandwritingRoute = ProgramsHandwritingRouteImport.update({
   path: '/handwriting',
   getParentRoute: () => ProgramsRoute,
 } as any)
+const ProgramsDrawingRoute = ProgramsDrawingRouteImport.update({
+  id: '/drawing',
+  path: '/drawing',
+  getParentRoute: () => ProgramsRoute,
+} as any)
+const ProgramsChessRoute = ProgramsChessRouteImport.update({
+  id: '/chess',
+  path: '/chess',
+  getParentRoute: () => ProgramsRoute,
+} as any)
 const ProgramsAiRoboticsRoute = ProgramsAiRoboticsRouteImport.update({
   id: '/ai-robotics',
   path: '/ai-robotics',
@@ -99,6 +111,8 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/programs/abacus': typeof ProgramsAbacusRoute
   '/programs/ai-robotics': typeof ProgramsAiRoboticsRoute
+  '/programs/chess': typeof ProgramsChessRoute
+  '/programs/drawing': typeof ProgramsDrawingRoute
   '/programs/handwriting': typeof ProgramsHandwritingRoute
   '/programs/kindergarten-tuition': typeof ProgramsKindergartenTuitionRoute
   '/programs/phonics': typeof ProgramsPhonicsRoute
@@ -113,6 +127,8 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/programs/abacus': typeof ProgramsAbacusRoute
   '/programs/ai-robotics': typeof ProgramsAiRoboticsRoute
+  '/programs/chess': typeof ProgramsChessRoute
+  '/programs/drawing': typeof ProgramsDrawingRoute
   '/programs/handwriting': typeof ProgramsHandwritingRoute
   '/programs/kindergarten-tuition': typeof ProgramsKindergartenTuitionRoute
   '/programs/phonics': typeof ProgramsPhonicsRoute
@@ -129,6 +145,8 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/programs/abacus': typeof ProgramsAbacusRoute
   '/programs/ai-robotics': typeof ProgramsAiRoboticsRoute
+  '/programs/chess': typeof ProgramsChessRoute
+  '/programs/drawing': typeof ProgramsDrawingRoute
   '/programs/handwriting': typeof ProgramsHandwritingRoute
   '/programs/kindergarten-tuition': typeof ProgramsKindergartenTuitionRoute
   '/programs/phonics': typeof ProgramsPhonicsRoute
@@ -146,6 +164,8 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/programs/abacus'
     | '/programs/ai-robotics'
+    | '/programs/chess'
+    | '/programs/drawing'
     | '/programs/handwriting'
     | '/programs/kindergarten-tuition'
     | '/programs/phonics'
@@ -160,6 +180,8 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/programs/abacus'
     | '/programs/ai-robotics'
+    | '/programs/chess'
+    | '/programs/drawing'
     | '/programs/handwriting'
     | '/programs/kindergarten-tuition'
     | '/programs/phonics'
@@ -175,6 +197,8 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/programs/abacus'
     | '/programs/ai-robotics'
+    | '/programs/chess'
+    | '/programs/drawing'
     | '/programs/handwriting'
     | '/programs/kindergarten-tuition'
     | '/programs/phonics'
@@ -270,6 +294,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProgramsHandwritingRouteImport
       parentRoute: typeof ProgramsRoute
     }
+    '/programs/drawing': {
+      id: '/programs/drawing'
+      path: '/drawing'
+      fullPath: '/programs/drawing'
+      preLoaderRoute: typeof ProgramsDrawingRouteImport
+      parentRoute: typeof ProgramsRoute
+    }
+    '/programs/chess': {
+      id: '/programs/chess'
+      path: '/chess'
+      fullPath: '/programs/chess'
+      preLoaderRoute: typeof ProgramsChessRouteImport
+      parentRoute: typeof ProgramsRoute
+    }
     '/programs/ai-robotics': {
       id: '/programs/ai-robotics'
       path: '/ai-robotics'
@@ -290,6 +328,8 @@ declare module '@tanstack/react-router' {
 interface ProgramsRouteChildren {
   ProgramsAbacusRoute: typeof ProgramsAbacusRoute
   ProgramsAiRoboticsRoute: typeof ProgramsAiRoboticsRoute
+  ProgramsChessRoute: typeof ProgramsChessRoute
+  ProgramsDrawingRoute: typeof ProgramsDrawingRoute
   ProgramsHandwritingRoute: typeof ProgramsHandwritingRoute
   ProgramsKindergartenTuitionRoute: typeof ProgramsKindergartenTuitionRoute
   ProgramsPhonicsRoute: typeof ProgramsPhonicsRoute
@@ -300,6 +340,8 @@ interface ProgramsRouteChildren {
 const ProgramsRouteChildren: ProgramsRouteChildren = {
   ProgramsAbacusRoute: ProgramsAbacusRoute,
   ProgramsAiRoboticsRoute: ProgramsAiRoboticsRoute,
+  ProgramsChessRoute: ProgramsChessRoute,
+  ProgramsDrawingRoute: ProgramsDrawingRoute,
   ProgramsHandwritingRoute: ProgramsHandwritingRoute,
   ProgramsKindergartenTuitionRoute: ProgramsKindergartenTuitionRoute,
   ProgramsPhonicsRoute: ProgramsPhonicsRoute,

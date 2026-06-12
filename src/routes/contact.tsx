@@ -2,7 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { z } from "zod";
 import { PageHero } from "@/components/site/Section";
-import { Phone, Mail, MapPin, Send, CheckCircle2 } from "lucide-react";
+import { Phone, Mail, MapPin, Send, CheckCircle2, ChevronDown } from "lucide-react";
+import contactMascot from "@/assets/contact-mascot.png";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -53,7 +54,7 @@ function Contact() {
 
       <section className="container-app py-16 grid md:grid-cols-3 gap-5">
         {[
-          { icon: MapPin, title: "Visit Us", lines: ["Santhoshpuram", "Chennai, Tamil Nadu"] },
+          { icon: MapPin, title: "Visit Us", lines: ["6th, 8/106, Kalaignar Karunanidhi", "Valliammai Cross St, Santhosapuram", "Chennai, Tamil Nadu 600073"] },
           { icon: Phone, title: "Call Us", lines: ["+91 98842 07073", "+91 90434 80305"], hrefs: ["tel:9884207073", "tel:9043480305"] },
           { icon: Mail, title: "Email Us", lines: ["crislearningcentre@gmail.com"], hrefs: ["mailto:crislearningcentre@gmail.com"] },
         ].map((c) => (
@@ -92,10 +93,15 @@ function Contact() {
             <Field label="Phone Number" name="phone" type="tel" error={errors.phone} />
             <div className="sm:col-span-2">
               <label className="block text-sm font-medium mb-1.5">Program Interested In</label>
-              <select name="program" className="w-full px-4 py-3 rounded-2xl bg-background border border-input focus:outline-none focus:ring-2 focus:ring-ring">
-                <option value="">Select a program</option>
-                {programs.map((p) => <option key={p} value={p}>{p}</option>)}
-              </select>
+              <div className="relative">
+                <select name="program" className="w-full px-4 py-3 rounded-2xl bg-background border border-input appearance-none focus:outline-none focus:ring-2 focus:ring-ring">
+                  <option value="">Select a program</option>
+                  {programs.map((p) => <option key={p} value={p}>{p}</option>)}
+                </select>
+
+                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+              </div>
+              
               {errors.program && <p className="text-xs text-destructive mt-1">{errors.program}</p>}
             </div>
             <div className="sm:col-span-2">
@@ -109,14 +115,19 @@ function Contact() {
           </button>
         </form>
 
-        <div className="rounded-3xl overflow-hidden border border-border/50 shadow-[var(--shadow-soft)] min-h-[400px]">
-          <iframe
-            title="CRIS Learning Centre Location"
-            src="https://www.google.com/maps?q=Santhoshpuram%20Chennai&output=embed"
-            loading="lazy"
-            className="w-full h-full min-h-[400px] border-0"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+        <div className="relative">
+          <div className="rounded-3xl overflow-hidden border border-border/50 shadow-[var(--shadow-soft)] h-full min-h-[400px]">
+            <iframe
+              title="CRIS Learning Centre Location"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7777.758631252986!2d80.16856893386843!3d12.915477362364044!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525f310b3a15a5%3A0xfa9eb30af5ad970b!2sThe%20CRIS%20Learning%20Centre!5e0!3m2!1sen!2sin!4v1781281377279!5m2!1sen!2sin"
+              loading="lazy"
+              className="w-full h-full min-h-[400px] border-0"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+          <div className="absolute -bottom-10 -right-6 w-32 h-32 md:-bottom-12 md:-right-10 md:w-48 md:h-48 lg:w-72 lg:h-72 animate-float pointer-events-none z-10">
+            <img src={contactMascot} alt="" className="w-full h-full object-contain drop-shadow-xl" />
+          </div>
         </div>
       </section>
     </>

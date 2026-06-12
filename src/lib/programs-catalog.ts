@@ -1,10 +1,12 @@
-import { GraduationCap, BookOpen, Pencil, Sparkles, Calculator, Cpu, type LucideIcon } from "lucide-react";
+import { GraduationCap, BookOpen, Pencil, Sparkles, Calculator, Cpu, Palette, Trophy, type LucideIcon } from "lucide-react";
 import kgImg from "@/assets/kindergarten.jpg";
 import phonicsImg from "@/assets/phonics.jpg";
 import handwritingImg from "@/assets/handwriting.jpg";
 import prewritingImg from "@/assets/prewriting.jpg";
 import abacusImg from "@/assets/abacus.jpg";
 import roboticsImg from "@/assets/ai-robotics.jpg";
+import drawingImg from "@/assets/drawing.jpg";
+import chessImg from "@/assets/chess.jpg";
 
 export type ProgramSlug =
   | "/programs/kindergarten-tuition"
@@ -12,7 +14,9 @@ export type ProgramSlug =
   | "/programs/handwriting"
   | "/programs/pre-writing"
   | "/programs/abacus"
-  | "/programs/ai-robotics";
+  | "/programs/ai-robotics"
+  | "/programs/drawing"
+  | "/programs/chess";
 
 export interface Program {
   slug: ProgramSlug;
@@ -220,6 +224,70 @@ export const programs: Program[] = [
       "Confidence with technology",
       "Logical & analytical thinking",
       "Excitement for STEM",
+    ],
+  },
+  {
+    slug: "/programs/drawing",
+    title: "Drawing Class",
+    short: "Unleash creativity through structured art & drawing.",
+    subtitle: "Creative Arts · SWASA ART",
+    description:
+      "A creative and structured drawing program in collaboration with SWASA ART, designed to help children express themselves and master foundational art techniques.",
+    image: drawingImg,
+    icon: Palette,
+    ageGroup: "All Ages",
+    tags: ["Drawing", "Painting", "Craft", "Creative"],
+    highlights: [
+      "Foundational drawing techniques",
+      "Color theory and painting",
+      "Creative craft projects",
+      "Personalised guidance",
+      "Online & direct options",
+    ],
+    benefits: [
+      "Fine motor skill development",
+      "Enhanced creativity & expression",
+      "Improved focus & patience",
+      "Foundational art skills",
+      "Confidence in self-expression",
+    ],
+    outcomes: [
+      "Mastery of basic drawing",
+      "Confident use of colors",
+      "Unique creative projects",
+      "Joy of artistic creation",
+    ],
+  },
+  {
+    slug: "/programs/chess",
+    title: "Chess Class",
+    short: "Professional chess training for young strategists.",
+    subtitle: "Strategy · White & Black Academy",
+    description:
+      "Strategic chess training in collaboration with White & Black Academy, helping children master the game of kings while building analytical and decision-making skills.",
+    image: chessImg,
+    icon: Trophy,
+    ageGroup: "Ages 5+",
+    tags: ["Strategy", "Focus", "Analysis", "Competitive"],
+    highlights: [
+      "Professional coaching",
+      "Strategic opening & ending",
+      "Tactical problem solving",
+      "Competitive match practice",
+      "Analytical thinking drills",
+    ],
+    benefits: [
+      "Critical thinking skills",
+      "Improved concentration",
+      "Strategic planning",
+      "Patience & discipline",
+      "Better decision making",
+    ],
+    outcomes: [
+      "Strong chess foundations",
+      "Tournament readiness",
+      "Enhanced logical thinking",
+      "Competitive sportsmanship",
     ],
   },
 ];
