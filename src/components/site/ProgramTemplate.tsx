@@ -99,12 +99,12 @@ export function ProgramTemplate({ program }: { program: Program }) {
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {program.benefits.map((b, i) => (
-            <Reveal key={b} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70}>
+            <Reveal key={b.label} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70}>
               <div className="h-full bg-card rounded-3xl p-6 border border-border/60 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-card)] hover:-translate-y-1.5 transition-all duration-300">
-                <div className="grid place-items-center w-12 h-12 rounded-2xl bg-[var(--gradient-primary)] text-white mb-4 shadow-md">
-                  <Check className="w-6 h-6" strokeWidth={2.5} />
+                <div className="grid place-items-center w-12 h-12 rounded-2xl bg-accent/10 text-accent mb-4 shadow-sm">
+                  <b.icon className="w-6 h-6" strokeWidth={2.5} />
                 </div>
-                <h3 className="font-display font-bold text-lg leading-tight">{b}</h3>
+                <h3 className="font-display font-bold text-lg leading-tight">{b.label}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                   A focused approach that helps your child build this skill with confidence.
                 </p>

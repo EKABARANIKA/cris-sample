@@ -1,12 +1,12 @@
-import { GraduationCap, BookOpen, Pencil, Sparkles, Calculator, Cpu, Palette, Trophy, type LucideIcon } from "lucide-react";
-import kgImg from "@/assets/kindergarten.jpg";
-import phonicsImg from "@/assets/phonics.jpg";
-import handwritingImg from "@/assets/handwriting.jpg";
-import prewritingImg from "@/assets/prewriting.jpg";
-import abacusImg from "@/assets/abacus.jpg";
-import roboticsImg from "@/assets/ai-robotics.jpg";
-import drawingImg from "@/assets/drawing.jpg";
-import chessImg from "@/assets/chess.jpg";
+import { GraduationCap, BookOpen, Pencil, Sparkles, Calculator, Cpu, Palette, Trophy, Users, Brain, Zap, ClipboardList, Search, Mic2, Library, FileText, Timer, Target, PenTool, MousePointer2, Lightbulb, Code, Binary, Brush, Map, Smile, type LucideIcon } from "lucide-react";
+import kgImg from "@/assets/kindergarten.png";
+import phonicsImg from "@/assets/phonics.png";
+import handwritingImg from "@/assets/handwriting.png";
+import prewritingImg from "@/assets/prewriting.png";
+import abacusImg from "@/assets/abacus.png";
+import roboticsImg from "@/assets/ai-robotics.png";
+import drawingImg from "@/assets/drawing.png";
+import chessImg from "@/assets/chess.png";
 
 export type ProgramSlug =
   | "/programs/kindergarten-tuition"
@@ -29,7 +29,7 @@ export interface Program {
   ageGroup: string;
   tags: string[];
   highlights: string[];
-  benefits: string[];
+  benefits: { label: string; icon: LucideIcon }[];
   outcomes: string[];
 }
 
@@ -53,11 +53,11 @@ export const programs: Program[] = [
       "Progress tracking & parent updates",
     ],
     benefits: [
-      "Individual attention",
-      "Homework support",
-      "Concept clarity",
-      "Confidence building",
-      "Personalised learning plans",
+      { label: "Individual attention", icon: Users },
+      { label: "Homework support", icon: BookOpen },
+      { label: "Concept clarity", icon: Brain },
+      { label: "Confidence building", icon: Zap },
+      { label: "Personalised learning plans", icon: ClipboardList },
     ],
     outcomes: [
       "Strong alphabet & number sense",
@@ -85,11 +85,11 @@ export const programs: Program[] = [
       "Listening & pronunciation focus",
     ],
     benefits: [
-      "Letter sound recognition",
-      "Word blending",
-      "Reading fluency",
-      "Pronunciation improvement",
-      "Vocabulary building",
+      { label: "Letter sound recognition", icon: Search },
+      { label: "Word blending", icon: Zap },
+      { label: "Reading fluency", icon: BookOpen },
+      { label: "Pronunciation improvement", icon: Mic2 },
+      { label: "Vocabulary building", icon: Library },
     ],
     outcomes: [
       "Independent reading",
@@ -117,11 +117,11 @@ export const programs: Program[] = [
       "Individual monitoring",
     ],
     benefits: [
-      "Personalised coaching",
-      "Regular practice sheets",
-      "Speed improvement drills",
-      "Neatness training",
-      "Individual monitoring",
+      { label: "Personalised coaching", icon: Users },
+      { label: "Regular practice sheets", icon: FileText },
+      { label: "Speed improvement drills", icon: Timer },
+      { label: "Neatness training", icon: Sparkles },
+      { label: "Individual monitoring", icon: Target },
     ],
     outcomes: [
       "Improved writing speed",
@@ -149,11 +149,11 @@ export const programs: Program[] = [
       "Confidence-first approach",
     ],
     benefits: [
-      "Correct pencil grip",
-      "Tracing & pattern practice",
-      "Fine motor development",
-      "Hand-eye coordination",
-      "Focus & attention",
+      { label: "Correct pencil grip", icon: Pencil },
+      { label: "Tracing & pattern practice", icon: PenTool },
+      { label: "Fine motor development", icon: MousePointer2 },
+      { label: "Hand-eye coordination", icon: Target },
+      { label: "Focus & attention", icon: Brain },
     ],
     outcomes: [
       "Ready for formal writing",
@@ -181,11 +181,11 @@ export const programs: Program[] = [
       "Confidence-building approach",
     ],
     benefits: [
-      "Strong mental calculation",
-      "Improved concentration",
-      "Memory enhancement",
-      "Logical thinking",
-      "Boosted academic confidence",
+      { label: "Strong mental calculation", icon: Calculator },
+      { label: "Improved concentration", icon: Brain },
+      { label: "Memory enhancement", icon: Zap },
+      { label: "Logical thinking", icon: Lightbulb },
+      { label: "Boosted academic confidence", icon: Trophy },
     ],
     outcomes: [
       "Quick mental math",
@@ -213,11 +213,11 @@ export const programs: Program[] = [
       "Future-ready STEM thinking",
     ],
     benefits: [
-      "Introduction to coding",
-      "Hands-on robotics kits",
-      "Computational thinking",
-      "Creativity & innovation",
-      "Teamwork & problem solving",
+      { label: "Introduction to coding", icon: Code },
+      { label: "Hands-on robotics kits", icon: Cpu },
+      { label: "Computational thinking", icon: Binary },
+      { label: "Creativity & innovation", icon: Lightbulb },
+      { label: "Teamwork & problem solving", icon: Users },
     ],
     outcomes: [
       "Foundational coding skills",
@@ -245,11 +245,11 @@ export const programs: Program[] = [
       "Online & direct options",
     ],
     benefits: [
-      "Fine motor skill development",
-      "Enhanced creativity & expression",
-      "Improved focus & patience",
-      "Foundational art skills",
-      "Confidence in self-expression",
+      { label: "Fine motor skill development", icon: MousePointer2 },
+      { label: "Enhanced creativity & expression", icon: Palette },
+      { label: "Improved focus & patience", icon: Timer },
+      { label: "Foundational art skills", icon: Brush },
+      { label: "Confidence in self-expression", icon: Smile },
     ],
     outcomes: [
       "Mastery of basic drawing",
@@ -277,11 +277,11 @@ export const programs: Program[] = [
       "Analytical thinking drills",
     ],
     benefits: [
-      "Critical thinking skills",
-      "Improved concentration",
-      "Strategic planning",
-      "Patience & discipline",
-      "Better decision making",
+      { label: "Critical thinking skills", icon: Brain },
+      { label: "Improved concentration", icon: Target },
+      { label: "Strategic planning", icon: Map },
+      { label: "Patience & discipline", icon: Timer },
+      { label: "Better decision making", icon: Lightbulb },
     ],
     outcomes: [
       "Strong chess foundations",

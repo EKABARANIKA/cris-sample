@@ -21,7 +21,7 @@ export function CTA({
         </div>
         
         <div className="absolute -bottom-6 -left-6 w-24 h-24 md:w-44 md:h-44 lg:w-64 lg:h-64 animate-float pointer-events-none z-[0] opacity-40 md:opacity-100" style={{ animationDelay: '0.5s' }}>
-          <img src={butterflyMascot} alt="" className="w-full h-full object-contain drop-shadow-2xl" />
+          <img src={butterflyMascot} alt="" className="w-full h-full object-contain mascot-optimize drop-shadow-2xl" />
         </div>
         <div className="relative">
           <h2 className="font-display font-bold text-3xl md:text-5xl leading-tight max-w-2xl mx-auto text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">

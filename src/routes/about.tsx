@@ -3,7 +3,7 @@ import { PageHero } from "@/components/site/Section";
 import { CTA } from "@/components/site/CTA";
 import { Marquee } from "@/components/site/Marquee";
 import { Award, GraduationCap, Heart, Users, BookOpen, ShieldCheck, ArrowRight } from "lucide-react";
-import storyImg from "@/assets/phonics.jpg";
+import storyImg from "@/assets/phonics.png";
 
 export const Route = createFileRoute("/about")({
   head: () => ({

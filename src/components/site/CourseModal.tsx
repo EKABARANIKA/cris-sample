@@ -7,7 +7,7 @@ export interface CourseDetail {
   image: string;
   description: string;
   ageGroup: string;
-  benefits: string[];
+  benefits: { label: string; icon: any }[];
   outcomes: string[];
   href: string;
 }
@@ -72,9 +72,9 @@ export function CourseModal({ course, onClose }: { course: CourseDetail | null; 
               <h4 className="font-display font-semibold text-sm uppercase tracking-wider text-primary">Benefits</h4>
               <ul className="mt-2 space-y-1.5">
                 {course.benefits.map((b) => (
-                  <li key={b} className="flex items-start gap-2 text-sm">
-                    <Check className="w-4 h-4 mt-0.5 text-primary shrink-0" />
-                    <span>{b}</span>
+                  <li key={b.label} className="flex items-start gap-2 text-sm">
+                    <b.icon className="w-4 h-4 mt-0.5 text-accent shrink-0" />
+                    <span>{b.label}</span>
                   </li>
                 ))}
               </ul>

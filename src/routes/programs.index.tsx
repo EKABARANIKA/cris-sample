@@ -31,7 +31,7 @@ function Programs() {
           <img 
             src={coursesMascot} 
             alt="" 
-            className="w-full h-full object-contain drop-shadow-2xl" 
+            className="w-full h-full object-contain mascot-optimize drop-shadow-2xl" 
           />
         </div>
       </div>
@@ -45,7 +45,7 @@ function Programs() {
                 className="group block h-full relative overflow-hidden rounded-[2rem] bg-card shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-card)] border border-border/50 hover:-translate-y-2 transition-all duration-300"
               >
                 <div className="aspect-[16/11] overflow-hidden">
-                  <img src={p.image} alt={p.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src={p.image} alt={p.title} loading="lazy" className="w-full h-full object-cover object-top scale-[1.01] group-hover:scale-110 transition-transform duration-700" />
                 </div>
                 <div className="p-6 md:p-7">
                   <div className="flex items-center gap-3 mb-2">

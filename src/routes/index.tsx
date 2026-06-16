@@ -1,15 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowRight, BookOpen, Pencil, Calculator, Sparkles, GraduationCap, Star, Users, Award, Heart, ShieldCheck, ChevronRight, Palette, BookMarked, PenTool, Trophy, Cpu, Handshake, Instagram } from "lucide-react";
-import heroImg from "@/assets/hero-children.jpg";
-import kgImg from "@/assets/kindergarten.jpg";
-import phonicsImg from "@/assets/phonics.jpg";
-import handwritingImg from "@/assets/handwriting.jpg";
-import prewritingImg from "@/assets/prewriting.jpg";
-import abacusImg from "@/assets/abacus.jpg";
-import roboticsImg from "@/assets/ai-robotics.jpg";
-import drawingImg from "@/assets/drawing.jpg";
-import chessImg from "@/assets/chess.jpg";
+import heroImg from "@/assets/hero-children.png";
+import kgImg from "@/assets/kindergarten.png";
+import kgImgAbout from "@/assets/kindergarten.jpg";
+import phonicsImg from "@/assets/phonics.png";
+import phonicsImgAbout from "@/assets/phonics.jpg";
+import handwritingImg from "@/assets/handwriting.png";
+import handwritingImgAbout from "@/assets/handwriting.jpg";
+import prewritingImg from "@/assets/prewriting.png";
+import abacusImg from "@/assets/abacus.png";
+import roboticsImg from "@/assets/ai-robotics.png";
+import drawingImg from "@/assets/drawing.png";
+import chessImg from "@/assets/chess.png";
 import numbersImg from "@/assets/numbers.jpg";
 import swasaLogo from "@/assets/swasa-logo.jpg";
 import ipaLogo from "@/assets/ipa.jpg";
@@ -33,104 +36,12 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const courses: (CourseDetail & { icon: typeof BookOpen; tags: string[]; short: string })[] = [
-  {
-    title: "Kindergarten Tuition",
-    short: "Personalised support for Pre-KG, LKG & UKG students.",
-    image: kgImg,
-    icon: GraduationCap,
-    tags: ["Pre-KG", "LKG", "UKG"],
-    ageGroup: "Ages 3 – 6",
-    description: "Exclusive kindergarten tuition for Pre-KG, LKG and UKG students. Personalised, structured and joyful learning that builds school confidence and academic readiness.",
-    benefits: ["Individual attention", "Homework support", "Concept clarity", "Confidence building", "Personalised learning plans"],
-    outcomes: ["Strong alphabet & number sense", "Reading & writing readiness", "Improved school performance", "Joyful approach to learning"],
-    href: "/programs/kindergarten-tuition",
-  },
-  {
-    title: "Phonics Classes",
-    short: "Letter sounds, blending & confident reading.",
-    image: phonicsImg,
-    icon: BookOpen,
-    tags: ["English", "Tamil", "Hindi"],
-    ageGroup: "Ages 4+",
-    description: "Structured phonics training in English, Tamil and Hindi that turns letter sounds into fluent, confident reading.",
-    benefits: ["Letter sound recognition", "Word blending", "Reading fluency", "Pronunciation improvement", "Vocabulary building"],
-    outcomes: ["Independent reading", "Stronger pronunciation", "Improved listening skills", "Reading confidence"],
-    href: "/programs/phonics",
-  },
-  {
-    title: "Handwriting Classes",
-    short: "Neat, fast and confident handwriting development.",
-    image: handwritingImg,
-    icon: Pencil,
-    tags: ["Neatness", "Speed", "Confidence"],
-    ageGroup: "Ages 5+",
-    description: "A focused program to develop beautiful, neat and confident handwriting through personalised coaching and regular practice.",
-    benefits: ["Personalised coaching", "Regular practice sheets", "Speed improvement drills", "Neatness training", "Individual monitoring"],
-    outcomes: ["Improved writing speed", "Better presentation", "Enhanced confidence", "Cleaner handwriting"],
-    href: "/programs/handwriting",
-  },
-  {
-    title: "Pre-Writing Skills",
-    short: "Grip, tracing and fine motor readiness for writing.",
-    image: prewritingImg,
-    icon: Sparkles,
-    tags: ["Motor Skills", "Coordination"],
-    ageGroup: "Ages 2.5 – 4",
-    description: "Foundational pre-writing program that builds pencil grip, tracing skills, hand-eye coordination and fine motor strength — the building blocks of writing.",
-    benefits: ["Correct pencil grip", "Tracing & pattern practice", "Fine motor development", "Hand-eye coordination", "Focus & attention"],
-    outcomes: ["Ready for formal writing", "Better hand control", "Improved concentration", "Confident strokes"],
-    href: "/programs/pre-writing",
-  },
-  {
-    title: "Abacus Classes",
-    short: "Mental math mastery through colourful abacus learning.",
-    image: abacusImg,
-    icon: Calculator,
-    tags: ["Mental Math", "Focus", "Speed"],
-    ageGroup: "Ages 5 – 12",
-    description: "Build lightning-fast mental math, sharper concentration and number confidence through structured, level-based abacus training.",
-    benefits: ["Strong mental calculation", "Improved concentration", "Memory enhancement", "Logical thinking", "Boosted academic confidence"],
-    outcomes: ["Quick mental math", "Stronger focus & memory", "Better problem-solving", "Confident numerical skills"],
-    href: "/programs/abacus",
-  },
-  {
-    title: "AI & Robotics Classes",
-    short: "STEM, coding & robotics for curious young innovators.",
-    image: roboticsImg,
-    icon: Cpu,
-    tags: ["STEM", "Coding", "Robotics"],
-    ageGroup: "Ages 6 – 12",
-    description: "Hands-on AI, coding and robotics classes that spark curiosity, creativity and future-ready thinking through fun, age-appropriate projects.",
-    benefits: ["Introduction to coding", "Hands-on robotics kits", "Computational thinking", "Creativity & innovation", "Teamwork & problem solving"],
-    outcomes: ["Foundational coding skills", "Confidence with technology", "Logical & analytical thinking", "Excitement for STEM"],
-    href: "/programs/ai-robotics",
-  },
-  {
-    title: "Drawing Class",
-    short: "Unleash creativity through structured art & drawing.",
-    image: drawingImg,
-    icon: Palette,
-    tags: ["Art", "Creativity", "Expression"],
-    ageGroup: "All Ages",
-    description: "A creative and structured drawing program in collaboration with SWASA ART, designed to help children express themselves and master foundational art techniques.",
-    benefits: ["Fine motor development", "Enhanced creativity", "Improved focus", "Art techniques", "Self-expression"],
-    outcomes: ["Mastery of basic drawing", "Confident color use", "Unique art projects", "Creative joy"],
-    href: "/programs/drawing",
-  },
-  {
-    title: "Chess Class",
-    short: "Professional chess training for young strategists.",
-    image: chessImg,
-    icon: Trophy,
-    tags: ["Strategy", "Analysis", "Focus"],
-    ageGroup: "Ages 5+",
-    description: "Strategic chess training in collaboration with White & Black Academy, helping children master the game of kings while building analytical skills.",
-    benefits: ["Critical thinking", "Improved concentration", "Strategic planning", "Patience", "Decision making"],
-    outcomes: ["Strong foundations", "Tournament readiness", "Logical thinking", "Sportsmanship"],
-    href: "/programs/chess",
-  },
-];
+import { programs } from "@/lib/programs-catalog";
+
+const courses = programs.map(p => ({
+  ...p,
+  href: p.slug,
+}));
 
 const partners = [
   { 
@@ -281,7 +192,7 @@ function Home() {
 
           <div className="relative">
             <div className="grid grid-cols-2 gap-4">
-              {[kgImg, phonicsImg, numbersImg, handwritingImg].map((img, i) => (
+              {[kgImgAbout, phonicsImgAbout, numbersImg, handwritingImgAbout].map((img, i) => (
                 <div key={i} className={`rounded-3xl overflow-hidden shadow-[var(--shadow-soft)] ${i % 2 ? "translate-y-8" : ""}`}>
                   <img src={img} alt="" loading="lazy" className="w-full h-full object-cover aspect-[4/5]" />
                 </div>
@@ -328,10 +239,9 @@ function Home() {
         </div>
       </section>
 
-      {/* COURSES */}
       <section className="bg-muted/40 py-20 md:py-28 relative overflow-hidden">
         <div className="absolute -top-12 right-4 md:-top-16 md:right-8 lg:-top-20 lg:right-12 w-36 h-36 md:w-64 md:h-64 lg:w-[28rem] lg:h-[28rem] animate-float pointer-events-none z-[0] opacity-40 md:opacity-100">
-          <img src={coursesMascot} alt="" className="w-full h-full object-contain" />
+          <img src={coursesMascot} alt="" className="w-full h-full object-contain mascot-optimize" />
         </div>
         <div className="container-app">
           <SectionHeader
@@ -345,14 +255,14 @@ function Home() {
                 key={c.title}
                 onClick={() => setActive(c)}
                 style={{ animationDelay: `${i * 80}ms` }}
-                className="course-card text-left group relative bg-card rounded-3xl overflow-hidden shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02] border border-border/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary animate-fade-up cursor-pointer"
+                className="course-card text-left group relative bg-card rounded-3xl overflow-hidden shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02] border border-border/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary animate-fade-up cursor-pointer flex flex-col p-0"
               >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img src={c.image} alt={c.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="relative w-full aspect-[4/3] overflow-hidden shrink-0 bg-muted/20">
+                  <img src={c.image} alt={c.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover object-top scale-[1.01] group-hover:scale-110 transition-transform duration-500" />
                 </div>
                 <div className="p-6 relative z-[1]">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="grid place-items-center w-10 h-10 rounded-xl bg-primary/10 text-primary group-hover:bg-white/25 group-hover:text-white transition-colors">
+                    <div className="grid place-items-center w-10 h-10 rounded-xl bg-accent/10 text-accent group-hover:bg-white/25 group-hover:text-white transition-colors">
                       <c.icon className="w-5 h-5" />
                     </div>
                     <h3 className="font-display font-bold text-xl group-hover:text-white transition-colors">{c.title}</h3>
@@ -499,7 +409,7 @@ function Home() {
               subtitle="Real reviews from parents whose children have grown with us."
             />
             <div className="absolute -top-20 -right-6 w-28 h-28 md:-top-32 md:-right-12 md:w-56 md:h-56 lg:w-[24rem] lg:h-[24rem] animate-float pointer-events-none z-[0] opacity-60 md:opacity-100">
-              <img src={familiesMascot} alt="" className="w-full h-full object-contain drop-shadow-2xl" />
+              <img src={familiesMascot} alt="" className="w-full h-full object-contain mascot-optimize drop-shadow-2xl" />
             </div>
           </div>
         <div className="grid md:grid-cols-3 gap-6">
