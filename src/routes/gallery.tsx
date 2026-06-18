@@ -14,6 +14,12 @@ import handwriting from "@/assets/group-image-main.jpeg";
 import numbers from "@/assets/founder-certificate.jpeg";
 import g10 from "@/assets/gallery10.jpeg";
 import g11 from "@/assets/gallery11.jpeg";
+import g12 from "@/assets/gallery12.jpeg";
+import g13 from "@/assets/gallery13.jpeg";
+import g14 from "@/assets/gallery14.jpeg";
+import g15 from "@/assets/gallery15.jpeg";
+import g16 from "@/assets/gallery16.jpeg";
+import g17 from "@/assets/gallery17.jpeg";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -40,6 +46,12 @@ const items = [
   { src: g6},
   { src: g10},
   { src: g11},
+  { src: g12},
+  { src: g13},
+  { src: g14},
+  { src: g15},
+  { src: g16},
+  { src: g17},
 ];
 
 function Gallery() {
@@ -51,27 +63,27 @@ function Gallery() {
 
       <section className="container-app py-16">
         <div className="flex flex-col md:flex-row gap-6">
-          {/* Column 1 - 4 Images */}
+          {/* Column 1 - 6 Images */}
           <div className="flex-1 flex flex-col gap-6">
-            {[items[0], items[1], items[2], items[3]].map((item, i) => (
+            {[items[0], items[1], items[2], items[3], items[12], items[13]].map((item, i) => (
               <button key={i} onClick={() => setLightbox(item.src)} className="group relative overflow-hidden rounded-[2.5rem] shadow-[var(--shadow-soft)] transition-all block w-full focus:outline-none">
                 <img src={item.src} alt="Gallery" loading="lazy" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
               </button>
             ))}
           </div>
 
-          {/* Column 2 - 4 Images (g10 at bottom) */}
+          {/* Column 2 - 6 Images */}
           <div className="flex-1 flex flex-col gap-6">
-            {[items[4], items[5], items[10], items[6]].map((item, i) => (
+            {[items[4], items[5], items[10], items[6], items[14], items[15]].map((item, i) => (
               <button key={i} onClick={() => setLightbox(item.src)} className="group relative overflow-hidden rounded-[2.5rem] shadow-[var(--shadow-soft)] transition-all block w-full focus:outline-none">
                 <img src={item.src} alt="Gallery" loading="lazy" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
               </button>
             ))}
           </div>
 
-          {/* Column 3 - 4 Images */}
+          {/* Column 3 - 6 Images */}
           <div className="flex-1 flex flex-col gap-6">
-            {[items[7], items[8], items[9], items[11]].map((item, i) => (
+            {[items[7], items[8], items[9], items[11], items[16], items[17]].map((item, i) => (
               <button key={i} onClick={() => setLightbox(item.src)} className="group relative overflow-hidden rounded-[2.5rem] shadow-[var(--shadow-soft)] transition-all block w-full focus:outline-none">
                 <img src={item.src} alt="Gallery" loading="lazy" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
               </button>

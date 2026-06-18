@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
 import logo from "@/assets/Footer-Logo.png";
 
 export function Footer() {
@@ -25,9 +25,8 @@ export function Footer() {
           </p>
           <div className="flex gap-3 mt-5">
             {[
-              { Icon: Facebook, href: "https://www.facebook.com/CRISLEARNINGCENTRE/" },
-              { Icon: Instagram, href: "https://www.instagram.com/cris_learning_centre?igsh=MWw3MDQ4eTB5eXB3cQ==" },
-              { Icon: Youtube, href: "https://www.youtube.com/@crislearningcentre" }
+              { Icon: Facebook, href: "https://www.facebook.com/share/1EE26WbdMK/" },
+              { Icon: Instagram, href: "https://www.instagram.com/cris_learning_centre?igsh=MWw3MDQ4eTB5eXB3cQ==" }
             ].map(({ Icon, href }, i) => (
               <a 
                 key={i} 

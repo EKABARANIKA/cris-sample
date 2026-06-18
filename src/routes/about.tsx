@@ -39,10 +39,10 @@ function About() {
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-wider uppercase">Our Story</span>
           <h2 className="mt-4 font-display font-bold text-3xl md:text-4xl leading-tight">A journey of nurturing young minds</h2>
           <p className="mt-5 text-muted-foreground leading-relaxed">
-            Established in 2009, CRIS Learning Centre has been helping children build confidence, academic readiness and strong learning habits through engaging educational programs.
+            Established in 2009, CRIS Learning Centre has been nurturing young minds through engaging educational programs that build confidence, academic readiness, and lifelong learning habits.
           </p>
           <p className="mt-3 text-muted-foreground leading-relaxed">
-            What started as a small tuition initiative in Santhoshpuram has grown into a trusted premium early learning destination for families across Chennai — without ever losing the personal touch that defined us from day one.
+            Starting its journey in Velachery, CRIS Learning Centre has steadily expanded over the years to become a trusted learning destination for families across Chennai, while staying true to the personalized approach that has been at the heart of our mission since day one.
           </p>
         </div>
       </section>

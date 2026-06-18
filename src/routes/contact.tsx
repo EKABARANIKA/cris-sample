@@ -32,20 +32,41 @@ function Contact() {
   const [sent, setSent] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
     const data = Object.fromEntries(fd.entries());
     const result = schema.safeParse(data);
+    
     if (!result.success) {
       const errs: Record<string, string> = {};
       result.error.issues.forEach((i) => { errs[i.path[0] as string] = i.message; });
       setErrors(errs);
       return;
     }
+    
     setErrors({});
-    setSent(true);
-    e.currentTarget.reset();
+    
+    try {
+      const response = await fetch("https://formspree.io/f/crislearningcentre@gmail.com", {
+        method: "POST",
+        body: fd,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        setSent(true);
+        form.reset();
+      } else {
+        const errorData = await response.json();
+        setErrors({ form: errorData.error || "Something went wrong. Please try again." });
+      }
+    } catch (error) {
+      setErrors({ form: "Failed to send message. Please check your connection." });
+    }
   }
 
   return (
@@ -83,6 +104,12 @@ function Contact() {
             <div className="mb-5 flex items-center gap-3 p-4 rounded-2xl bg-primary/10 text-primary">
               <CheckCircle2 className="w-5 h-5" />
               <span className="text-sm font-medium">Thank you! We'll be in touch shortly.</span>
+            </div>
+          )}
+
+          {errors.form && (
+            <div className="mb-5 flex items-center gap-3 p-4 rounded-2xl bg-destructive/10 text-destructive">
+              <span className="text-sm font-medium">{errors.form}</span>
             </div>
           )}
 

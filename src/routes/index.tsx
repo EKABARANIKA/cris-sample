@@ -58,7 +58,7 @@ const partners = [
     desc: "Abacus and brain development program for children to boost memory and concentration.", 
     color: "from-violet-500 to-fuchsia-500",
     logo: ipaLogo,
-    url: "https://www.instagram.com/p/DXWkGFiChBq/?igsh=MTF6emZtZGdoNnFmZg=="
+    url: "https://www.instagram.com/ipa_santhoshpuram?igsh=MTF3OTcya2VrdmxsYg=="
   },
   { 
     name: "White & Black Academy", 
@@ -180,10 +180,10 @@ function Home() {
               A premium early learning centre in <span className="text-gradient">Santhoshpuram</span>
             </h2>
             <p className="mt-5 text-muted-foreground leading-relaxed">
-              Established in 2009, CRIS Learning Centre has been dedicated to helping young learners build strong educational foundations through personalised and engaging learning experiences.
+              Established in 2009, CRIS Learning Centre has been nurturing young minds through engaging educational programs that build confidence, academic readiness, and lifelong learning habits.
             </p>
             <p className="mt-3 text-muted-foreground leading-relaxed">
-              From their very first tracing exercise to confident reading and writing, we walk every step with your child — with small batches, qualified trainers, and a curriculum that grows with them.
+              Starting its journey in Velachery, CRIS Learning Centre has steadily expanded over the years to become a trusted learning destination for families across Chennai, while staying true to the personalized approach that has been at the heart of our mission since day one.
             </p>
             <Link to="/about" className="mt-7 inline-flex items-center gap-2 font-display font-semibold text-primary group">
               Learn More <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -240,9 +240,6 @@ function Home() {
       </section>
 
       <section className="bg-muted/40 py-20 md:py-28 relative overflow-hidden">
-        <div className="absolute -top-12 right-4 md:-top-16 md:right-8 lg:-top-20 lg:right-12 w-36 h-36 md:w-64 md:h-64 lg:w-[28rem] lg:h-[28rem] animate-float pointer-events-none z-[0] opacity-40 md:opacity-100">
-          <img src={coursesMascot} alt="" className="w-full h-full object-contain mascot-optimize" />
-        </div>
         <div className="container-app">
           <SectionHeader
             eyebrow="What We Offer"
