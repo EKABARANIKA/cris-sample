@@ -4,7 +4,7 @@ import { CTA } from "@/components/site/CTA";
 import { Reveal } from "@/components/site/Reveal";
 import { ArrowRight } from "lucide-react";
 import { programs } from "@/lib/programs-catalog";
-import coursesMascot from "@/assets/courses-mascot.png";
+
 
 export const Route = createFileRoute("/programs/")({
   head: () => ({
@@ -21,19 +21,12 @@ export const Route = createFileRoute("/programs/")({
 function Programs() {
   return (
     <>
-      <div className="relative">
+      <div>
         <PageHero
           eyebrow="Programs"
           title={<>Our <span className="text-gradient">Learning Programs</span></>}
           subtitle="Six premium programs designed to nurture confident, curious learners — from first scribbles to future-ready STEM thinking."
         />
-        <div className="absolute top-4 right-0 md:top-8 md:right-4 lg:top-12 lg:right-8 w-40 h-40 md:w-80 md:h-80 lg:w-[30rem] lg:h-[30rem] animate-float pointer-events-none z-[0] opacity-50 md:opacity-100">
-          <img 
-            src={coursesMascot} 
-            alt="" 
-            className="w-full h-full object-contain mascot-optimize drop-shadow-2xl" 
-          />
-        </div>
       </div>
 
       <section className="container-app py-20">
