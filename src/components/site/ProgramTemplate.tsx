@@ -167,7 +167,8 @@ export function ProgramTemplate({ program }: { program: Program }) {
           {related.map((r) => (
             <Link
               key={r.slug}
-              to={r.slug}
+              to="/programs/$programSlug"
+              params={{ programSlug: r.slug.split('/').pop() || '' }}
               className="group block w-[280px] md:w-[320px] shrink-0 bg-card rounded-3xl overflow-hidden border border-border/60 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-card)] hover:-translate-y-1.5 transition-all duration-300"
             >
               <div className="aspect-[4/3] overflow-hidden">

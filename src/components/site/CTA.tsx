@@ -36,7 +36,9 @@ export function CTA({
               Enroll Now <ArrowRight className="w-4 h-4" />
             </Link>
             <a
-              href="tel:9884207073"
+              href="https://wa.me/919884207073?text=Hi, I would like to book a visit to CRIS Learning Centre."
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-foreground/30 backdrop-blur border-2 border-white text-white font-display font-bold text-base hover:bg-white hover:text-primary transition"
             >
               <Phone className="w-4 h-4" /> Book A Visit

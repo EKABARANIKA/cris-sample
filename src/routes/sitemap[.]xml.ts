@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
+import { programs } from "@/lib/programs-catalog";
 
 const BASE_URL = "";
 
@@ -11,10 +12,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           "/",
           "/about",
           "/programs",
-          "/programs/kindergarten-tuition",
-          "/programs/phonics",
-          "/programs/handwriting",
-          "/programs/early-learning",
+          ...programs.map(p => p.slug),
           "/gallery",
           "/contact",
         ];

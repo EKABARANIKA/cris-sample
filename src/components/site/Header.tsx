@@ -32,25 +32,18 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${
-        scrolled ? "shadow-[0_4px_24px_-12px_rgba(124,58,237,0.18)]" : "shadow-[0_1px_0_0_rgba(0,0,0,0.04)]"
-      }`}
+      className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${scrolled ? "shadow-[0_4px_24px_-12px_rgba(124,58,237,0.18)]" : "shadow-[0_1px_0_0_rgba(0,0,0,0.04)]"
+        }`}
     >
       <div className="container-app flex items-center justify-between py-3">
         <Link to="/" className="flex items-center group" aria-label="CRIS Learning Centre — Home">
-          <div 
-            className="h-14 md:h-16 w-24 md:w-32 bg-white relative overflow-hidden"
-            style={{
-              backgroundImage: `url(${logo})`,
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center'
-            }}
-          >
+          <div className="h-14 md:h-16 w-24 md:w-32 bg-white relative overflow-hidden">
             <img
               src={logo}
               alt="CRIS Learning Centre"
-              className="h-full w-full object-contain group-hover:scale-[1.03] transition-transform [transform:translateZ(0)] opacity-[0.99] [filter:brightness(1.01)_contrast(1.01)] bg-transparent [isolation:isolate]"
+              loading="eager"
+              decoding="async"
+              className="h-full w-full object-contain group-hover:scale-[1.03] transition-transform [transform:translateZ(0)] will-change-transform bg-transparent"
             />
           </div>
         </Link>
@@ -93,30 +86,26 @@ export function Header() {
         {/* Overlay */}
         <div
           onClick={() => setOpen(false)}
-          className={`absolute inset-0 bg-foreground/50 backdrop-blur-sm transition-opacity duration-300 ${
-            open ? "opacity-100" : "opacity-0"
-          }`}
+          className={`absolute inset-0 bg-foreground/50 backdrop-blur-sm transition-opacity duration-300 ${open ? "opacity-100" : "opacity-0"
+            }`}
         />
         {/* Drawer */}
         <aside
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation"
-          className={`absolute top-0 right-0 h-[100svh] w-[82%] max-w-sm bg-white shadow-2xl flex flex-col transform transition-transform duration-300 ease-out will-change-transform ${
-            open ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`absolute top-0 right-0 h-[100svh] w-[82%] max-w-sm bg-white shadow-2xl flex flex-col transform transition-transform duration-300 ease-out will-change-transform ${open ? "translate-x-0" : "translate-x-full"
+            }`}
         >
           <div className="flex items-center justify-between px-5 py-4 border-b border-border">
-            <div 
-              className="h-12 w-24 bg-white relative overflow-hidden"
-              style={{
-                backgroundImage: `url(${logo})`,
-                backgroundSize: 'contain',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'left center'
-              }}
-            >
-              <img src={logo} alt="CRIS Learning Centre" className="h-full w-full object-contain mascot-optimize bg-transparent [isolation:isolate]" />
+            <div className="h-12 w-24 bg-white relative overflow-hidden">
+              <img 
+                src={logo} 
+                alt="CRIS Learning Centre" 
+                loading="eager"
+                decoding="async"
+                className="h-full w-full object-contain mascot-optimize bg-transparent" 
+              />
             </div>
             <button
               aria-label="Close menu"

@@ -8,16 +8,13 @@ export function Footer() {
       <div className="container-app py-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="bg-white rounded-2xl p-3 inline-block mb-4 shadow-[var(--shadow-soft)] overflow-hidden">
-            <div
-              className="h-16 w-32 relative"
-              style={{
-                backgroundImage: `url(${logo})`,
-                backgroundSize: 'contain',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center'
-              }}
-            >
-              <img src={logo} alt="CRIS Learning Centre" className="h-full w-full object-contain [transform:translateZ(0)] opacity-[0.99] [filter:brightness(1.01)_contrast(1.01)] bg-transparent [isolation:isolate]" />
+            <div className="h-16 w-32 relative">
+              <img 
+                src={logo} 
+                alt="CRIS Learning Centre" 
+                loading="lazy"
+                className="h-full w-full object-contain [transform:translateZ(0)] bg-transparent" 
+              />
             </div>
           </div>
           <p className="text-sm text-white/75 leading-relaxed">
@@ -62,12 +59,27 @@ export function Footer() {
         <div>
           <h4 className="font-display font-semibold text-white mb-4">Programs</h4>
           <ul className="space-y-2 text-sm">
-            <li><Link to="/programs/kindergarten-tuition" className="hover:text-primary-soft">Kindergarten Tuition</Link></li>
-            <li><Link to="/programs/phonics" className="hover:text-primary-soft">Phonics Classes</Link></li>
-            <li><Link to="/programs/handwriting" className="hover:text-primary-soft">Handwriting Classes</Link></li>
-            <li><Link to="/programs/pre-writing" className="hover:text-primary-soft">Pre-Writing Skills</Link></li>
-            <li><Link to="/programs/abacus" className="hover:text-primary-soft">Abacus Classes</Link></li>
-            <li><Link to="/programs/ai-robotics" className="hover:text-primary-soft">AI &amp; Robotics</Link></li>
+            {[
+              { to: "/programs/kindergarten-tuition", l: "Kindergarten Tuition" },
+              { to: "/programs/phonics", l: "Phonics Classes" },
+              { to: "/programs/handwriting", l: "Handwriting Classes" },
+              { to: "/programs/pre-writing", l: "Pre-Writing Skills" },
+              { to: "/programs/abacus", l: "Abacus Classes" },
+              { to: "/programs/ai-robotics", l: "AI & Robotics" },
+            ].map((p) => {
+              const slug = p.to.split('/').pop() || '';
+              return (
+                <li key={p.to}>
+                  <Link 
+                    to="/programs/$programSlug" 
+                    params={{ programSlug: slug }}
+                    className="hover:text-primary-soft transition-colors"
+                  >
+                    {p.l}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
 

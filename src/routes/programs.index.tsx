@@ -34,7 +34,8 @@ function Programs() {
           {programs.map((p, i) => (
             <Reveal key={p.slug} direction={i % 2 === 0 ? "left" : "right"} delay={(i % 3) * 80}>
               <Link
-                to={p.slug}
+                to="/programs/$programSlug"
+                params={{ programSlug: p.slug.split('/').pop() || '' }}
                 className="group block h-full relative overflow-hidden rounded-[2rem] bg-card shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-card)] border border-border/50 hover:-translate-y-2 transition-all duration-300"
               >
                 <div className="aspect-[16/11] overflow-hidden">

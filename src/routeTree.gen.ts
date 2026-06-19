@@ -16,14 +16,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProgramsIndexRouteImport } from './routes/programs.index'
-import { Route as ProgramsPreWritingRouteImport } from './routes/programs.pre-writing'
-import { Route as ProgramsPhonicsRouteImport } from './routes/programs.phonics'
-import { Route as ProgramsKindergartenTuitionRouteImport } from './routes/programs.kindergarten-tuition'
-import { Route as ProgramsHandwritingRouteImport } from './routes/programs.handwriting'
-import { Route as ProgramsDrawingRouteImport } from './routes/programs.drawing'
-import { Route as ProgramsChessRouteImport } from './routes/programs.chess'
-import { Route as ProgramsAiRoboticsRouteImport } from './routes/programs.ai-robotics'
-import { Route as ProgramsAbacusRouteImport } from './routes/programs.abacus'
+import { Route as ProgramsProgramSlugRouteImport } from './routes/programs.$programSlug'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -60,45 +53,9 @@ const ProgramsIndexRoute = ProgramsIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ProgramsRoute,
 } as any)
-const ProgramsPreWritingRoute = ProgramsPreWritingRouteImport.update({
-  id: '/pre-writing',
-  path: '/pre-writing',
-  getParentRoute: () => ProgramsRoute,
-} as any)
-const ProgramsPhonicsRoute = ProgramsPhonicsRouteImport.update({
-  id: '/phonics',
-  path: '/phonics',
-  getParentRoute: () => ProgramsRoute,
-} as any)
-const ProgramsKindergartenTuitionRoute =
-  ProgramsKindergartenTuitionRouteImport.update({
-    id: '/kindergarten-tuition',
-    path: '/kindergarten-tuition',
-    getParentRoute: () => ProgramsRoute,
-  } as any)
-const ProgramsHandwritingRoute = ProgramsHandwritingRouteImport.update({
-  id: '/handwriting',
-  path: '/handwriting',
-  getParentRoute: () => ProgramsRoute,
-} as any)
-const ProgramsDrawingRoute = ProgramsDrawingRouteImport.update({
-  id: '/drawing',
-  path: '/drawing',
-  getParentRoute: () => ProgramsRoute,
-} as any)
-const ProgramsChessRoute = ProgramsChessRouteImport.update({
-  id: '/chess',
-  path: '/chess',
-  getParentRoute: () => ProgramsRoute,
-} as any)
-const ProgramsAiRoboticsRoute = ProgramsAiRoboticsRouteImport.update({
-  id: '/ai-robotics',
-  path: '/ai-robotics',
-  getParentRoute: () => ProgramsRoute,
-} as any)
-const ProgramsAbacusRoute = ProgramsAbacusRouteImport.update({
-  id: '/abacus',
-  path: '/abacus',
+const ProgramsProgramSlugRoute = ProgramsProgramSlugRouteImport.update({
+  id: '/$programSlug',
+  path: '/$programSlug',
   getParentRoute: () => ProgramsRoute,
 } as any)
 
@@ -109,14 +66,7 @@ export interface FileRoutesByFullPath {
   '/gallery': typeof GalleryRoute
   '/programs': typeof ProgramsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/programs/abacus': typeof ProgramsAbacusRoute
-  '/programs/ai-robotics': typeof ProgramsAiRoboticsRoute
-  '/programs/chess': typeof ProgramsChessRoute
-  '/programs/drawing': typeof ProgramsDrawingRoute
-  '/programs/handwriting': typeof ProgramsHandwritingRoute
-  '/programs/kindergarten-tuition': typeof ProgramsKindergartenTuitionRoute
-  '/programs/phonics': typeof ProgramsPhonicsRoute
-  '/programs/pre-writing': typeof ProgramsPreWritingRoute
+  '/programs/$programSlug': typeof ProgramsProgramSlugRoute
   '/programs/': typeof ProgramsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -125,14 +75,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/programs/abacus': typeof ProgramsAbacusRoute
-  '/programs/ai-robotics': typeof ProgramsAiRoboticsRoute
-  '/programs/chess': typeof ProgramsChessRoute
-  '/programs/drawing': typeof ProgramsDrawingRoute
-  '/programs/handwriting': typeof ProgramsHandwritingRoute
-  '/programs/kindergarten-tuition': typeof ProgramsKindergartenTuitionRoute
-  '/programs/phonics': typeof ProgramsPhonicsRoute
-  '/programs/pre-writing': typeof ProgramsPreWritingRoute
+  '/programs/$programSlug': typeof ProgramsProgramSlugRoute
   '/programs': typeof ProgramsIndexRoute
 }
 export interface FileRoutesById {
@@ -143,14 +86,7 @@ export interface FileRoutesById {
   '/gallery': typeof GalleryRoute
   '/programs': typeof ProgramsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/programs/abacus': typeof ProgramsAbacusRoute
-  '/programs/ai-robotics': typeof ProgramsAiRoboticsRoute
-  '/programs/chess': typeof ProgramsChessRoute
-  '/programs/drawing': typeof ProgramsDrawingRoute
-  '/programs/handwriting': typeof ProgramsHandwritingRoute
-  '/programs/kindergarten-tuition': typeof ProgramsKindergartenTuitionRoute
-  '/programs/phonics': typeof ProgramsPhonicsRoute
-  '/programs/pre-writing': typeof ProgramsPreWritingRoute
+  '/programs/$programSlug': typeof ProgramsProgramSlugRoute
   '/programs/': typeof ProgramsIndexRoute
 }
 export interface FileRouteTypes {
@@ -162,14 +98,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/programs'
     | '/sitemap.xml'
-    | '/programs/abacus'
-    | '/programs/ai-robotics'
-    | '/programs/chess'
-    | '/programs/drawing'
-    | '/programs/handwriting'
-    | '/programs/kindergarten-tuition'
-    | '/programs/phonics'
-    | '/programs/pre-writing'
+    | '/programs/$programSlug'
     | '/programs/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -178,14 +107,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/gallery'
     | '/sitemap.xml'
-    | '/programs/abacus'
-    | '/programs/ai-robotics'
-    | '/programs/chess'
-    | '/programs/drawing'
-    | '/programs/handwriting'
-    | '/programs/kindergarten-tuition'
-    | '/programs/phonics'
-    | '/programs/pre-writing'
+    | '/programs/$programSlug'
     | '/programs'
   id:
     | '__root__'
@@ -195,14 +117,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/programs'
     | '/sitemap.xml'
-    | '/programs/abacus'
-    | '/programs/ai-robotics'
-    | '/programs/chess'
-    | '/programs/drawing'
-    | '/programs/handwriting'
-    | '/programs/kindergarten-tuition'
-    | '/programs/phonics'
-    | '/programs/pre-writing'
+    | '/programs/$programSlug'
     | '/programs/'
   fileRoutesById: FileRoutesById
 }
@@ -266,86 +181,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProgramsIndexRouteImport
       parentRoute: typeof ProgramsRoute
     }
-    '/programs/pre-writing': {
-      id: '/programs/pre-writing'
-      path: '/pre-writing'
-      fullPath: '/programs/pre-writing'
-      preLoaderRoute: typeof ProgramsPreWritingRouteImport
-      parentRoute: typeof ProgramsRoute
-    }
-    '/programs/phonics': {
-      id: '/programs/phonics'
-      path: '/phonics'
-      fullPath: '/programs/phonics'
-      preLoaderRoute: typeof ProgramsPhonicsRouteImport
-      parentRoute: typeof ProgramsRoute
-    }
-    '/programs/kindergarten-tuition': {
-      id: '/programs/kindergarten-tuition'
-      path: '/kindergarten-tuition'
-      fullPath: '/programs/kindergarten-tuition'
-      preLoaderRoute: typeof ProgramsKindergartenTuitionRouteImport
-      parentRoute: typeof ProgramsRoute
-    }
-    '/programs/handwriting': {
-      id: '/programs/handwriting'
-      path: '/handwriting'
-      fullPath: '/programs/handwriting'
-      preLoaderRoute: typeof ProgramsHandwritingRouteImport
-      parentRoute: typeof ProgramsRoute
-    }
-    '/programs/drawing': {
-      id: '/programs/drawing'
-      path: '/drawing'
-      fullPath: '/programs/drawing'
-      preLoaderRoute: typeof ProgramsDrawingRouteImport
-      parentRoute: typeof ProgramsRoute
-    }
-    '/programs/chess': {
-      id: '/programs/chess'
-      path: '/chess'
-      fullPath: '/programs/chess'
-      preLoaderRoute: typeof ProgramsChessRouteImport
-      parentRoute: typeof ProgramsRoute
-    }
-    '/programs/ai-robotics': {
-      id: '/programs/ai-robotics'
-      path: '/ai-robotics'
-      fullPath: '/programs/ai-robotics'
-      preLoaderRoute: typeof ProgramsAiRoboticsRouteImport
-      parentRoute: typeof ProgramsRoute
-    }
-    '/programs/abacus': {
-      id: '/programs/abacus'
-      path: '/abacus'
-      fullPath: '/programs/abacus'
-      preLoaderRoute: typeof ProgramsAbacusRouteImport
+    '/programs/$programSlug': {
+      id: '/programs/$programSlug'
+      path: '/$programSlug'
+      fullPath: '/programs/$programSlug'
+      preLoaderRoute: typeof ProgramsProgramSlugRouteImport
       parentRoute: typeof ProgramsRoute
     }
   }
 }
 
 interface ProgramsRouteChildren {
-  ProgramsAbacusRoute: typeof ProgramsAbacusRoute
-  ProgramsAiRoboticsRoute: typeof ProgramsAiRoboticsRoute
-  ProgramsChessRoute: typeof ProgramsChessRoute
-  ProgramsDrawingRoute: typeof ProgramsDrawingRoute
-  ProgramsHandwritingRoute: typeof ProgramsHandwritingRoute
-  ProgramsKindergartenTuitionRoute: typeof ProgramsKindergartenTuitionRoute
-  ProgramsPhonicsRoute: typeof ProgramsPhonicsRoute
-  ProgramsPreWritingRoute: typeof ProgramsPreWritingRoute
+  ProgramsProgramSlugRoute: typeof ProgramsProgramSlugRoute
   ProgramsIndexRoute: typeof ProgramsIndexRoute
 }
 
 const ProgramsRouteChildren: ProgramsRouteChildren = {
-  ProgramsAbacusRoute: ProgramsAbacusRoute,
-  ProgramsAiRoboticsRoute: ProgramsAiRoboticsRoute,
-  ProgramsChessRoute: ProgramsChessRoute,
-  ProgramsDrawingRoute: ProgramsDrawingRoute,
-  ProgramsHandwritingRoute: ProgramsHandwritingRoute,
-  ProgramsKindergartenTuitionRoute: ProgramsKindergartenTuitionRoute,
-  ProgramsPhonicsRoute: ProgramsPhonicsRoute,
-  ProgramsPreWritingRoute: ProgramsPreWritingRoute,
+  ProgramsProgramSlugRoute: ProgramsProgramSlugRoute,
   ProgramsIndexRoute: ProgramsIndexRoute,
 }
 
