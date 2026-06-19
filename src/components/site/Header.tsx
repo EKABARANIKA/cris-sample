@@ -88,6 +88,7 @@ export function Header() {
       <div
         className={`lg:hidden fixed inset-0 z-[60] ${open ? "pointer-events-auto" : "pointer-events-none"}`}
         aria-hidden={!open}
+        {...(!open ? { inert: true } : {})}
       >
         {/* Overlay */}
         <div
