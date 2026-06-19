@@ -30,6 +30,7 @@ const programs = ["Kindergarten Tuition", "Phonics Classes", "Handwriting Classe
 
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -47,9 +48,10 @@ function Contact() {
     }
     
     setErrors({});
+    setSubmitting(true);
     
     try {
-      const response = await fetch("https://formspree.io/f/crislearningcentre@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/crislearningcentre@gmail.com", {
         method: "POST",
         body: fd,
         headers: {
@@ -66,6 +68,8 @@ function Contact() {
       }
     } catch (error) {
       setErrors({ form: "Failed to send message. Please check your connection." });
+    } finally {
+      setSubmitting(false);
     }
   }
 
@@ -101,9 +105,9 @@ function Contact() {
           <p className="text-sm text-muted-foreground mb-6">Tell us about your child and we'll reach out within 24 hours.</p>
 
           {sent && (
-            <div className="mb-5 flex items-center gap-3 p-4 rounded-2xl bg-primary/10 text-primary">
-              <CheckCircle2 className="w-5 h-5" />
-              <span className="text-sm font-medium">Thank you! We'll be in touch shortly.</span>
+            <div className="mb-5 flex items-start gap-3 p-4 rounded-2xl bg-success/10 text-success">
+              <CheckCircle2 className="w-5 h-5 mt-0.5 shrink-0" />
+              <span className="text-sm font-medium leading-relaxed">Thank you for reaching out to us. We have received your enquiry and will get back to you as soon as possible.</span>
             </div>
           )}
 
@@ -114,6 +118,8 @@ function Contact() {
           )}
 
           <div className="grid sm:grid-cols-2 gap-4">
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_subject" value="New Lead from Website Contact Form" />
             <Field label="Parent Name" name="parentName" error={errors.parentName} />
             <Field label="Child Name" name="childName" error={errors.childName} />
             <Field label="Age" name="age" error={errors.age} />
@@ -137,8 +143,16 @@ function Contact() {
             </div>
           </div>
 
-          <button type="submit" className="btn-primary w-full mt-6 hover:[transform:translateY(-2px)] hover:shadow-[var(--shadow-glow)]">
-            Schedule A Visit <Send className="w-4 h-4" />
+          <button 
+            type="submit" 
+            disabled={submitting}
+            className="btn-primary w-full mt-6 hover:[transform:translateY(-2px)] hover:shadow-[var(--shadow-glow)] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
+          >
+            {submitting ? (
+              <span className="flex items-center gap-2">Processing... <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /></span>
+            ) : (
+              <span className="flex items-center gap-2">Schedule A Visit <Send className="w-4 h-4" /></span>
+            )}
           </button>
         </form>
 

@@ -296,6 +296,7 @@ function Home() {
             viewBox="0 0 1200 24"
             preserveAspectRatio="none"
             aria-hidden="true"
+            style={{ opacity: 0.4 }}
           >
             <path
               d="M 40 12 Q 240 -12, 440 12 T 840 12 T 1160 12"

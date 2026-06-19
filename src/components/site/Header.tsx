@@ -101,7 +101,7 @@ export function Header() {
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation"
-          className={`absolute top-0 right-0 h-full w-[82%] max-w-sm bg-white shadow-2xl flex flex-col transform transition-transform duration-300 ease-out will-change-transform ${
+          className={`absolute top-0 right-0 h-[100svh] w-[82%] max-w-sm bg-white shadow-2xl flex flex-col transform transition-transform duration-300 ease-out will-change-transform ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -115,7 +115,7 @@ export function Header() {
                 backgroundPosition: 'left center'
               }}
             >
-              <img src={logo} alt="CRIS Learning Centre" className="h-full w-full object-contain [transform:translateZ(0)] opacity-[0.99] [filter:brightness(1.01)_contrast(1.01)] bg-transparent [isolation:isolate]" />
+              <img src={logo} alt="CRIS Learning Centre" className="h-full w-full object-contain mascot-optimize bg-transparent [isolation:isolate]" />
             </div>
             <button
               aria-label="Close menu"
