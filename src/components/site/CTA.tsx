@@ -19,7 +19,7 @@ export function CTA({
           <div className="absolute top-10 left-10 w-40 h-40 rounded-full bg-white blur-3xl" />
           <div className="absolute bottom-10 right-10 w-48 h-48 rounded-full bg-white blur-3xl" />
         </div>
-        
+
         <div className="absolute -bottom-6 -left-6 w-24 h-24 md:w-44 md:h-44 lg:w-64 lg:h-64 animate-float pointer-events-none z-[0] opacity-40 md:opacity-100" style={{ animationDelay: '0.5s' }}>
           <img src={butterflyMascot} alt="" className="w-full h-full object-contain mascot-optimize drop-shadow-2xl" />
         </div>

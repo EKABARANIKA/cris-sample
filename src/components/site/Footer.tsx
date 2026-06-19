@@ -8,7 +8,7 @@ export function Footer() {
       <div className="container-app py-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="bg-white rounded-2xl p-3 inline-block mb-4 shadow-[var(--shadow-soft)] overflow-hidden">
-            <div 
+            <div
               className="h-16 w-32 relative"
               style={{
                 backgroundImage: `url(${logo})`,
@@ -28,12 +28,12 @@ export function Footer() {
               { Icon: Facebook, href: "https://www.facebook.com/share/1EE26WbdMK/" },
               { Icon: Instagram, href: "https://www.instagram.com/cris_learning_centre?igsh=MWw3MDQ4eTB5eXB3cQ==" }
             ].map(({ Icon, href }, i) => (
-              <a 
-                key={i} 
-                href={href} 
-                target="_blank" 
+              <a
+                key={i}
+                href={href}
+                target="_blank"
                 rel="noopener noreferrer"
-                aria-label="social link" 
+                aria-label="social link"
                 className="grid place-items-center w-9 h-9 rounded-full bg-white/10 hover:bg-primary transition-colors hover:text-white"
               >
                 <Icon className="w-4 h-4" />
@@ -77,7 +77,7 @@ export function Footer() {
             <li className="flex gap-3"><MapPin className="w-4 h-4 mt-0.5 text-primary-soft" />Santhosapuram, Chennai</li>
             <li className="flex gap-3"><Phone className="w-4 h-4 mt-0.5 text-primary-soft" />
               <span><a href="tel:9884207073" className="hover:text-primary-soft block">98842 07073</a>
-              <a href="tel:9043480305" className="hover:text-primary-soft block">90434 80305</a></span>
+                <a href="tel:9043480305" className="hover:text-primary-soft block">90434 80305</a></span>
             </li>
             <li className="flex gap-3"><Mail className="w-4 h-4 mt-0.5 text-primary-soft" /><a href="mailto:crislearningcentre@gmail.com" className="hover:text-primary-soft break-all">crislearningcentre@gmail.com</a></li>
           </ul>
